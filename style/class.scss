@@ -1,0 +1,185 @@
+/* 垂直水平居中 */
+.vc {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* 普通盒子 */
+.l-box {
+	width: 100%;
+	padding-left: $l-common-padding-left;
+	padding-right: $l-common-padding-right;
+}
+
+.l-layout {
+	background: #fff;
+	margin-top: $l-box-margin-top;
+	margin-bottom: $l-box-margin-bottom;
+	padding: $l-common-padding-top $l-common-padding-left;
+	border-radius: $l-radius;
+}
+
+.l-nav {
+	font-size: $l-nav-font-size;
+	font-weight: $l-font-weight;
+}
+
+.l-title {
+	font-size: $l-title-font-size;
+	font-weight: $l-font-weight;
+}
+
+.l-text {
+	font-size: $l-text-font-size;
+}
+
+.l-describe {
+	font-size: $l-describe-font-size;
+	color: $l-describe-color;
+}
+
+.l-hint {
+	font-size: $l-hint-font-size;
+	color: $l-describe-color;
+}
+
+.l-link {
+	color: $l-primary;
+}
+
+.l-placeholder {
+	font-size: $l-font-size;
+	color: $l-placeholder-color;
+}
+
+/* icon图大小 */
+.l-icon {
+	width: 32rpx;
+	height: 32rpx;
+}
+
+// 箭头符号图,原图是左边,旋转
+.l-arrow {
+	@extend .l-icon;
+	&.up {
+		transform: rotate(90deg);
+	}
+	&.right {
+		transform: rotate(180deg);
+	}
+	&.down {
+		transform: rotate(-90deg);
+	}
+}
+
+.l-text-margin {
+	margin-top: $l-text-margin-top;
+	margin-bottom: $l-text-margin-bottom;
+}
+
+.l-box-margin {
+	margin-top: $l-box-margin-top;
+	margin-bottom: $l-box-margin-bottom;
+}
+
+.l-cell-margin {
+	margin-top: $l-cell-margin-top;
+	margin-bottom: $l-cell-margin-bottom;
+}
+
+/* 金额颜色 */
+.l-price {
+	@extend .l-title;
+	color: $l-price-color;
+}
+
+/* 超出隐藏 */
+.l-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1; // 超出第几行隐藏
+	-webkit-box-orient: vertical;
+}
+
+/* 按钮颜色 */
+// 普通
+.l-button-common {
+	background: #fff !important;
+	border: $l-control-border;
+}
+// 主题颜色
+.l-button-theme {
+	background: $l-theme-color;
+	color: #fff;
+}
+// 成功
+.l-button-success {
+	background: $l-success;
+	color: #fff;
+}
+// 错误
+.l-button-error {
+	background: $l-error;
+	color: #fff;
+}
+// 警告
+.l-button-warning {
+	background: $l-warning;
+	color: #fff;
+}
+// 主要
+.l-button-primary {
+	background: $l-primary;
+	color: #fff;
+}
+
+/* 边框 */
+.l-border {
+	border: $l-control-border;
+}
+/* 下边框 */
+.l-border-bottom {
+	border-bottom: $l-control-border;
+}
+/* 取消边框 */
+.l-border-none {
+	border: none;
+}
+
+/* 绝对定位混入 */
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+	position: absolute;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+/* 绝对定位 */
+.l-absolute {
+	/* 默认垂直水平居中 */
+	@include absolute(50%, auto, auto, 50%);
+	transform: translateX(-50%) translateY(-50%);
+
+	/* 水平居中靠上 */
+	&.top {
+		@include absolute(0, auto, auto, 50%);
+		transform: translateX(-50%);
+	}
+	/* 垂直居中靠右 */
+	&.right {
+		@include absolute(50%, 0, auto, auto);
+		transform: translateY(-50%);
+	}
+	/* 水平居中靠下 */
+	&.bottom {
+		@include absolute(auto, auto, 0, 50%);
+		transform: translateX(-50%);
+	}
+	/* 垂直居中靠下 */
+	&.left {
+		@include absolute(50%, auto, auto, left);
+		transform: translateY(-50%);
+	}
+}
