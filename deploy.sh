@@ -7,8 +7,8 @@ git add .
 
 git commit -m 'update'
 
-git push gitee
+git push gitee main
 
-git push github
+git push github main
 
 cd -
