@@ -1,2 +1,3 @@
 # lView-UI
-lView-UI -> uniapp components  -> uniapp组件库
+uniapp组件库
+
