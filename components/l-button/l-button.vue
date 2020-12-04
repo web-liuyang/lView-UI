@@ -1,9 +1,18 @@
 <template>
-	<view>
-		<button :class="['l-button-' + mode, classname]" type="default" :form-type="formType" :disabled="disabled" :plain="plain" :hover-class="hoverClass" @click="$emit('click')" :style="{width,height,borderRaduis:raduis}">
-			<slot />
-		</button>
-	</view>
+  <view>
+    <button
+      :class="['l-button-' + mode, classname, 'test']"
+      type="default"
+      :form-type="formType"
+      :disabled="disabled"
+      :plain="plain"
+      :hover-class="hoverClass"
+      @click="$emit('click')"
+      :style="{ width, height, background, borderRaduis: raduis }"
+    >
+      <slot />
+    </button>
+  </view>
 </template>
 
 <script>
@@ -18,28 +27,30 @@
  * @property {String} width 按钮宽
  * @property {String} height 按钮高
  * @property {String} raduis 按钮圆角
+ * @property {String} background 按钮背景
  * @event {Function} click 点击事件
  */
 export default {
-	name: 'l-button',
-	data() {
-		return {};
-	},
-	props: {
-		classname: String,
-		mode: {
-			type: String,
-			default: () => 'common'
-		},
-		formType: String,
-		disabled: Boolean,
-		plain: Boolean,
-		hoverClass: String,
-		width: String,
-		height: String,
-		raduis: String
-	},
-	methods: {}
+  name: 'l-button',
+  data() {
+    return {};
+  },
+  props: {
+    classname: String,
+    mode: {
+      type: String,
+      default: () => 'common'
+    },
+    formType: String,
+    disabled: Boolean,
+    plain: Boolean,
+    hoverClass: String,
+    width: String,
+    height: String,
+    raduis: String,
+    background: String
+  },
+  methods: {}
 };
 </script>
 

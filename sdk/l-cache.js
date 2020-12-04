@@ -34,8 +34,7 @@ class Cache {
 		 * @description 设置缓存数据
 		 * @property {String} key 存储的key
 		 * @property {Object} data 存储的data数据
-		 * @property {String | Number} timeout 缓存时间默认86400秒等于一天，传0为永久存储
-		 * 
+		 * @property {String} timeout 缓存时间，传0为永久存储
 		 */
     set(key, data, timeout = this.timeout) {
         //data = 数据value值，超时时间，加入缓存时间
