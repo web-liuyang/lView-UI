@@ -87,6 +87,10 @@
 	margin-bottom: $l-cell-margin-bottom;
 }
 
+.l-common-padding {
+	padding: $l-common-padding-top $l-common-padding-right $l-common-padding-bottom $l-common-padding-left;
+}
+
 /* 金额颜色 */
 .l-price {
 	@extend .l-title;
