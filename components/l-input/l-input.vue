@@ -1,7 +1,7 @@
 <template>
   <view>
     <l-star v-if="starShow" :star="star" :text="text" />
-    <view style="position: relative" @click="$emit('clickInput')">
+    <view style="position: relative" @click="$emit('clickInput', $event)">
       <l-image class="icon-box" :src="icon" :lazyLoad="false" width="32rpx" height="32rpx" />
       <input
         v-if="mode === 'money'"
@@ -17,6 +17,7 @@
         :maxlength="maxlength"
         @input="handleInput"
         @confirm="confirm"
+        @blur="blur"
       />
       <block v-else-if="mode === 'code'">
         <input
@@ -32,6 +33,7 @@
           :maxlength="maxlength"
           @input="handleInput"
           @confirm="confirm"
+          @blur="blur"
         />
         <l-image class="l-absolute code" width="32rpx" height="32rpx" :lazyLoad="false" src="/static/icon/code.png" @click="clickCode" />
       </block>
@@ -49,21 +51,22 @@
         :maxlength="maxlength"
         @input="handleInput"
         @confirm="confirm"
+        @blur="blur"
       />
     </view>
   </view>
 </template>
 
 <script>
-import { reglist } from '@/utils/ly-regexp/ly-regexp.js';
+import { reglist } from '../../sdk/l-regexp.js';
 
 /**
  *
  * @description input框
- * @property {Boolean} starShow = [false|true] 是否显示提示默认true
+ * @property {Boolean} star-show = [false|true] 是否显示提示默认true
  * @property {Boolean} star = [false|true] 是否需要星号默认true
  * @property {String} text 文本内容
- * @property {String} mode =[money,code] 是否启动过滤
+ * @property {String} mode = [money|code] 启动过滤条件
  * @property {String} type 输入框的类型，默认text
  * @property {Boolean} disabled 是否禁用
  * @property {String} v-model 用于双向绑定输入框的值
@@ -80,6 +83,7 @@ import { reglist } from '@/utils/ly-regexp/ly-regexp.js';
  * @event {Function} input 输入框框事件
  * @event {Function} clickInput 点击input框事件
  * @event {Function} confirm 点击完成按钮时候触发
+ * @event {Function} blur 失去焦点
  * @event {Function} clickCode 点击扫码按钮
  *
  */
@@ -146,6 +150,10 @@ export default {
     // 确定
     confirm(e) {
       this.$emit('confirm', e);
+    },
+    // 失去焦点
+    blur(e) {
+      this.$emit('blur', e);
     },
   },
   components: {},

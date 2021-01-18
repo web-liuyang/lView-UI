@@ -1,5 +1,5 @@
 <template>
-	<view class="spinner-box"><view class="spinner" :style="{ width: size, height: size }" /></view>
+  <view class="l-loading-box"><view class="loading" :style="style" /></view>
 </template>
 
 <script>
@@ -8,34 +8,40 @@
  * @property {String} size 加载样式的大小,默认50rpx
  */
 export default {
-	props: {
-		size: {
-			type: String,
-			default: () => '50rpx'
-		}
-	},
-	methods: {},
-	computed: {},
-	components: {}
+  props: {
+    size: {
+      type: String,
+      default: () => '50rpx',
+    },
+  },
+  methods: {},
+  computed: {
+    style: ({ width: size, height: size }) => {
+      const style = {};
+      size && (style.width = size) && (style.height = size);
+      return style;
+    },
+  },
+  components: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.spinner-box {
-	.spinner {
-		background-color: $l-theme-color;
-		border-radius: 50%;
-		animation: scaleout 1s infinite ease-in-out;
-	}
+.loading-box {
+  .loading {
+    background-color: $l-theme-color;
+    border-radius: 50%;
+    animation: scaleout 1s infinite ease-in-out;
+  }
+}
 
-	@keyframes scaleout {
-		0% {
-			transform: scale(0);
-		}
-		100% {
-			transform: scale(1);
-			opacity: 0;
-		}
-	}
+@keyframes scaleout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 </style>

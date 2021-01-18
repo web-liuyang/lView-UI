@@ -9,7 +9,9 @@
         <view class="text" v-for="(item, index) in list" :key="index">{{ index + 1 }}、{{ item }}</view>
       </view>
       <view class="button-box">
-        <l-button @click="handleClickUpdate" :background="'linear-gradient(to right, #ff4500 ' + to + '% , #FE6932 0%)'" mode="theme" height="70rpx">立即升级</l-button>
+        <l-button :background="'linear-gradient(to right, #ff4500 ' + to + '% , #FE6932 0%)'" mode="theme" height="70rpx" @click="handleClickUpdate">
+          立即升级
+        </l-button>
       </view>
     </view>
   </view>
@@ -31,18 +33,18 @@ export default {
     return {
       show: this.value, // 是否显示升级框
       to: 0,
-      isClickUpdate: false // 是否已经点击过升级，请勿重复点击
+      isClickUpdate: false, // 是否已经点击过升级，请勿重复点击
     };
   },
   props: {
     version: String,
     list: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     value: {
       type: Boolean,
-      default: () => false
+      default: () => false,
     },
     path: String,
   },
@@ -57,23 +59,23 @@ export default {
     async handleClickUpdate() {
       uni.showLoading({
         title: '正在下载...',
-        mask: true
+        mask: true,
       });
       req.ajaxDownload({
         path: this.path,
         beforeAjaxDownload: (data, task) => {
-          task.onProgressUpdate(res => {
+          task.onProgressUpdate((res) => {
             this.to = res.progress;
           });
         },
-        afterAjaxDownload: data => {
+        afterAjaxDownload: (data) => {
           console.log(data);
           uni.hideLoading();
-          plus.runtime.install( data,{ force: true },()=>!this.overall && plus.runtime.restart());
-        }
+          plus.runtime.install(data, { force: true }, () => !this.overall && plus.runtime.restart());
+        },
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -84,7 +86,7 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 999;
-  &::before{
+  &::before {
     content: '';
     position: fixed;
     left: 0;
