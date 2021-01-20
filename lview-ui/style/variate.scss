@@ -1,0 +1,48 @@
+/* 字体大小 */
+$l-nav-font-size: 36rpx; // 导航标题字体大小
+$l-title-font-size: 32rpx; // 标题字体大小
+$l-input-font-size: 30rpx; // 输入框字体大小
+$l-font-size: 28rpx; // 默认字体大小
+$l-text-font-size: 26rpx; // 正文字体大小
+$l-describe-font-size: 24rpx; // 描述字体大小
+$l-hint-font-size: 20rpx; // 提示字体大小
+
+/* 字体粗细 */
+$l-font-weight: 500; // 字体加粗
+
+/* 颜色 */
+$l-color: #333; // 默认颜色
+$l-describe-color: #666; // 辅助文字颜色
+$l-tabbar-color: #999; // 未选中文字颜色
+$l-theme-color: #fc4500; // 主题颜色
+$l-price-color: #ff2323; // 价格颜色
+$l-bg-color: #f4f5fa; // 背景颜色
+$l-placeholder-color: #bbbdc7; // 输入框/文本框提示颜色
+$l-primary: #2979ff; // 主要
+$l-warning: #ff9900; // 警告
+$l-success: #19be6b; // 成功
+$l-error: #fa3534; // 错误
+
+/* 高度 */
+$l-nav-height: 44px; // 导航栏的固定高度
+$l-tabbar-height: 50px; // 底部选项卡的固定高度
+
+/* 控件类 input button */
+$l-radius: 8rpx; // 全局默认圆角
+$l-control-height: 90rpx; // 高度
+$l-control-radius: 45rpx; // 50%的圆角
+$l-control-padding: 0 24rpx; // 左右内边距
+$l-control-border: 1rpx #e6e6e6 solid; // 边框
+$l-control-border-color: #e6e6e6; // 边框颜色
+
+/* 边距类 */
+$l-text-margin-top: 10rpx; // 上文本普通间距
+$l-text-margin-bottom: 10rpx; // 下文本普通间距
+$l-box-margin-top: 20rpx; // 上盒子间距
+$l-box-margin-bottom: 20rpx; // 下盒子间距
+$l-cell-margin-top: 50rpx; // 上单元格间距
+$l-cell-margin-bottom: 50rpx; // 上单元格间距
+$l-common-padding-left: 24rpx; // 左距离内容间距
+$l-common-padding-right: 24rpx; // 右距离内容间距
+$l-common-padding-top: 30rpx; // 上距离内容间距
+$l-common-padding-bottom: 30rpx; // 下距离内容间距
